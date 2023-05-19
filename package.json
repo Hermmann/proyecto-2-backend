@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-2-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "clon de Amazon/MercadoLibre",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "moongose": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
+  }
+}

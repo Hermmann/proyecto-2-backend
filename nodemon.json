@@ -1,0 +1,7 @@
+{
+    "env": {
+      "MONGO_USER": "hermmann",
+      "MONGO_PASS": "mayhem"
+    }
+  }
+ 
