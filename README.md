@@ -1,2 +1,2 @@
-# proyecto_2_backend
+# proyecto-2-backend
 clon de Amazon/MercadoLibre
