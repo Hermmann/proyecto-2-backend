@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
-mongoose.set('strictQuery', true);
+const routerUser = require("./src/routes/user_route")
 
+mongoose.set('strictQuery', true);
 
 
 // app creation
@@ -12,7 +13,9 @@ app.get("/api", (req,res) => {
     res.send("API USER")
 });
 
-app.use(express.json);
+
+
+
 
 // the conntion to MongoDB
 console.log(process.env.MONGO_USER);
@@ -41,6 +44,8 @@ mongoose
   // Middlewares
 app.use(cors());
 app.use(express.json());
+
+app.use(routerUser);
 
   // Endpoint para 404
 app.use((req, res) => {

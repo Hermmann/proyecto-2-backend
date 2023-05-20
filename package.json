@@ -1,7 +1,7 @@
 {
   "name": "proyecto-2-backend",
   "version": "1.0.0",
-  "type": "module",
+  "type": "module.cjs",
   "description": "clon de Amazon/MercadoLibre",
   "main": "index.js",
   "scripts": {
