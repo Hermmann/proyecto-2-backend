@@ -49,7 +49,7 @@ app.use(routerUser);
 
   // Endpoint para 404
 app.use((req, res) => {
-    res.status(404).json({ message: 'Not found.' });
+    res.status(404).json({ message: 'route not found' });
   });
   
   // Inicia app en puerto 8080
