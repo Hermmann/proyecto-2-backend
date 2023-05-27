@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
     {
@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
         phone: { type: String, require: true,unique:true },
         password: {type: String, require: true },
         address: { type: String, require: true },
+        active: { type: Boolean, default: true },
     },
     {
         versionKey: false,

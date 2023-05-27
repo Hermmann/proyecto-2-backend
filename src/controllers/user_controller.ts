@@ -1,7 +1,8 @@
 const User = require("../models/user_model");
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
+import { Request,  Response} from 'express'
 //@ts-check
-const registerUser = async (req, res) => {
+const registerUser = async (req: Request, res: Response) => {
     try {
         const { name, email, phone, password, address } = req.body;
         const user = new User({
@@ -15,19 +16,19 @@ const registerUser = async (req, res) => {
 
         await user
             .save()
-            .then((data) =>
+            .then((data: JSON) =>
                 res.status(200).json({
                     data,
                 })
             )
-            .catch((err) => res.json(err));
+            .catch((err : Error) => res.json(err));
     } catch (error) {
         res.status(500).json({ msg: "Error en el servidor" })
     }
 
 };
 
-const loginUser = async (req, res) => {
+const loginUser = async (req: Request,res: Response) => {
     try {
 
         const { email, password } = req.body;
@@ -62,7 +63,7 @@ const loginUser = async (req, res) => {
     }
 };
 
-const getUser = async (req, res) => {
+const getUser = async (req: Request,res: Response) => {
     const { id_user } = req.query;
 
     if (!id_user) {
@@ -75,12 +76,12 @@ const getUser = async (req, res) => {
     return res.status(200).json(user);
 }
 
-const updateUser = async (req, res) => {
+const updateUser = async (req: Request,res: Response) => {
     try {
         const { name, password, email, phone } = req.body;
         //const { id_user } = req.query;
         const {authorization} = req.headers;
-        const token = authorization.split(" ")[1];
+        const token = authorization?.split(" ")[1];
         const verify = jwt.verify(token, "secret")
 
         const u =
