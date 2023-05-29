@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "b9f83ceb-f3bc-48e3-88f3-a3e0c1d5a9a2",
+		"name": "Proyecto 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26133322"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "postUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"dueño\",\r\n  \"email\":\"dueño@dueño.com\",\r\n  \"password\":\"123\",\r\n  \"phone\" : \"1212434\",\r\n  \"address\":\"sdsd\",\r\n  \"role\": \"dueño\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/usuario/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuario",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserToken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/usuario/login?email=dueño@dueño.com&password=123",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuario",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "dueño@dueño.com"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/usuario/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6474191ded66fdd18030fc60"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzMDIyNCwiZXhwIjoxNjg1MzM3NDI0fQ.x73h4wuOD5PXJhzYiCQIEsifYGOmfsMHYFR_S3uFRfM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"bbbbbcccc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/usuario/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "647349e3c3b182106008eda1",
+									"description": "id del usuario a actualizar (los datos a actualizar estan en body)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzMDIyNCwiZXhwIjoxNjg1MzM3NDI0fQ.x73h4wuOD5PXJhzYiCQIEsifYGOmfsMHYFR_S3uFRfM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/usuario/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"usuario",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "647350cda58386cd0eb7ede7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "postProducto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzMDIyNCwiZXhwIjoxNjg1MzM3NDI0fQ.x73h4wuOD5PXJhzYiCQIEsifYGOmfsMHYFR_S3uFRfM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"z\",\r\n  \"description\":\"z\",\r\n  \"category\":\"Z\",\r\n  \"price\" : \"1212434\",\r\n  \"user_id\":\"6474191ded66fdd18030fc60\",\r\n  \"rating\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/producto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"producto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos?user_id=&name=&category=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": ""
+								},
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "category",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/producto/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"producto",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64741a51ed66fdd18030fc6c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductosCategorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/:user_id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "6474191ded66fdd18030fc60"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProducto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzMDIyNCwiZXhwIjoxNjg1MzM3NDI0fQ.x73h4wuOD5PXJhzYiCQIEsifYGOmfsMHYFR_S3uFRfM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"zzzzz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/productos/producto/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"producto",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64741cf4680475bf1b5e67c2",
+									"description": "id del producto a actualizar (los datos a actualizar estan en body)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProducto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzMDIyNCwiZXhwIjoxNjg1MzM3NDI0fQ.x73h4wuOD5PXJhzYiCQIEsifYGOmfsMHYFR_S3uFRfM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/productos/producto/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"producto",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64741cf4680475bf1b5e67c2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "postPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzNzQ4NSwiZXhwIjoxNjg1MzQ0Njg1fQ.gkPAJ0ldimINDM_qB9-JT9c4C2YwbM-2eziQjdWSBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\":\"z\",\r\n  \"description\":\"z\",\r\n  \"category\":\"Z\",\r\n  \"quantity\":\"2541\",\r\n  \"total\" : \"1212434\",\r\n  \"comment\":\"asdssdd\",\r\n  \"rating\":\"3\",\r\n  \"user_id\":\"6474191ded66fdd18030fc60\",\r\n  \"date\":\"2023-05-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/pedidos/pedido",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pedidos",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzNzQ4NSwiZXhwIjoxNjg1MzQ0Njg1fQ.gkPAJ0ldimINDM_qB9-JT9c4C2YwbM-2eziQjdWSBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/pedidos?user_id=6474191ded66fdd18030fc60&a_date=&b_date=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pedidos"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "6474191ded66fdd18030fc60"
+								},
+								{
+									"key": "a_date",
+									"value": ""
+								},
+								{
+									"key": "b_date",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzNzQ4NSwiZXhwIjoxNjg1MzQ0Njg1fQ.gkPAJ0ldimINDM_qB9-JT9c4C2YwbM-2eziQjdWSBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/pedidos/pedido/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pedidos",
+								"pedido",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64743206239529f690783808"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY0NzQxOTFkZWQ2NmZkZDE4MDMwZmM2MCIsIm5hbWUiOiJkdWXDsW8iLCJlbWFpbCI6ImR1ZcOxb0BkdWXDsW8uY29tIiwicGFzc3dvcmQiOiIxMjMiLCJwaG9uZSI6IjEyMTI0MzQiLCJhZGRyZXNzIjoic2RzZCIsInJvbGUiOiJkdWXDsW8iLCJhY3RpdmUiOnRydWV9LCJwYXNzd29yZCI6IjEyMyIsImlhdCI6MTY4NTMzNzQ4NSwiZXhwIjoxNjg1MzQ0Njg1fQ.gkPAJ0ldimINDM_qB9-JT9c4C2YwbM-2eziQjdWSBQU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"aaad\",\r\n    \"rating\":\"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/pedidos/pedido/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pedidos",
+								"pedido",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "64743206239529f690783808",
+									"description": "id del pedido a actualizar (los datos a actualizar estan en body)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
