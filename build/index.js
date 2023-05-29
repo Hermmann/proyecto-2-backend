@@ -7,7 +7,9 @@ const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const routerUser = require('./src/routes/user_route');
+const routerUser = require('./src/routes/usuario_route');
+const routerProduct = require('./src/routes/producto_route');
+const routerOrder = require('./src/routes/pedido_route');
 mongoose_1.default.set('strictQuery', true);
 // dotenv config Variables de entorno
 dotenv_1.default.config();
@@ -30,7 +32,10 @@ mongoose_1.default.connect('mongodb+srv://' +
 // Middlewares
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+//routes
 app.use(routerUser);
+app.use(routerProduct);
+app.use(routerOrder);
 // Endpoint para 404
 app.use((req, res) => {
     res.status(404).json({ message: 'route not found' });
