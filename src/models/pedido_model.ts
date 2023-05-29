@@ -10,11 +10,11 @@ const pedidoSchema = new mongoose.Schema(
         comment: { type: String, required: true},
         rating: { type: Number, required: true, min: 0 },
         user_id: { type: String, required: true },
+        date: { type: String, required: true },
         active: { type: Boolean, default: true },
     },
     {
-        versionKey: false,
-        timestamps: true 
+        versionKey: false
     }
 );
 

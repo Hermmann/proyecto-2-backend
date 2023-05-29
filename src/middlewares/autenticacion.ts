@@ -11,7 +11,7 @@ export const validateToken = (req :Request, res : Response, next: NextFunction) 
         const {authorization} = req.headers;
         const token = authorization.split(" ")[1];
         const verify = jwt.verify(token, process.env.JWT_SECRET);
-        if (verify.user.active === true) {
+        if (verify.user.active === true && verify.user.role === "dueño") {
             next();
         } else {
             throw new Error()

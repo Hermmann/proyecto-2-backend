@@ -7,16 +7,20 @@ dotenv.config();
 
 const postPedido = async (req: Request, res: Response) => {
     try {
-        const { name, email, password,  phone,  address } = req.body;
-        const user = new Pedido({
+        const { name, description, category, quantity, total, comment, rating, user_id , date} = req.body;
+        const pedido = new Pedido({
             name,
-            email,
-            password,
-            phone,
-            address
+            description,
+            category,
+            quantity,
+            total,
+            comment,
+            rating,
+            user_id,
+            date
         });
 
-        const resultado = await user.save();
+        const resultado = await pedido.save();
         res.status(200).json(resultado);
     } catch (error) {
         res.status(500).json({ msg: "Error en el servidor" })
@@ -24,46 +28,50 @@ const postPedido = async (req: Request, res: Response) => {
 
 };
 
+const getPedidos = async (req: Request,res: Response) => {
+    try {
+        const { user_id, a_date, b_date} = req.query;
+        let filter: Object = {}
+        if(a_date && b_date){
+            filter = {user_id: user_id, date: {$gte: a_date, $lte: b_date}, active: true};
+        }else if(a_date && !b_date){
+            filter = {user_id: user_id, date: {$gte: a_date}, active: true};
+        }else if(!a_date && b_date){
+            filter = {user_id: user_id, date: {$lte: b_date}, active: true};
+        }else{
+            filter = {user_id: user_id, active: true};
+        }
+        const resultado = await Pedido.find(filter);
+        res.status(200).json(resultado);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
 const getPedido = async (req: Request,res: Response) => {
     try {
-
-        const { email, password } = req.query;
-
-        if (!email || !password) {
-            return res.status(200).json({ msg: "No envió email o password" });
-        }
-
-        const user = await Pedido.findOne({ email : email});
-        if (!user) {
-            return res.status(200).json({ msg: "Usuario no existe" })
-        }
-        if (user.password !== password) {
-            return res.status(200).json({ msg: "Contraseña inválida" })
-        }
-        const token = jwt.sign({ user, password }, process.env.JWT_SECRET, { expiresIn: "2h" })// sh quiere decir que expira en 2 horas
-        return res.status(200).json({ token: token });
+        const resultado = await Pedido.findById({ _id: req.params.id, active: true});
+        res.status(200).json(resultado);
     } catch (error) {
         res.status(500).json({ msg: "Error en el servidor" });
     }
 };
 
-const getPedidos = async (req: Request,res: Response) => {
-    const { id } = req.params;
 
-    if (!id) {
-        return res.status(200).json({ msg: "provee una id" });
-    }
-    let user = await Pedido.findOne({ _id: id, active: true});
-    if (!user) {
-        return res.status(404).json({ msg: "El usuario no existe" });
-    }
-    return res.status(200).json(user);
-}
 
 const updatePedido = async (req: Request,res: Response) => {
     try {
-        const usuario = await Pedido.findOneAndUpdate({ _id: req.params.id, active: true}, req.body, { new: true});
-        const resultado = await usuario.save();
+        const {comment, rating} =  req.body
+        let filter: Object = {}
+        if (comment && rating) {
+            filter = {comment: comment, rating: rating}
+        }else if(comment && !rating){
+            filter = {comment: comment}
+        }else if(!comment && rating){
+            filter = {rating: rating}
+        }
+        const pedido = await Pedido.findOneAndUpdate({ _id: req.params.id, active: true}, filter, {new: true});
+        const resultado = await pedido.save();
         res.status(200).json(resultado);        
     } catch (error) {
         res.status(500).json({ msg: "Error en el servidor" });

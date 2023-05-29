@@ -7,6 +7,7 @@ const productoSchema = new mongoose.Schema(
         category: { type: String, required: true },
         price: { type: Number, required: true, min: 0 },
         user_id: { type: String, required: true },
+        rating: { type: Number, required: true, min: 0 },
         active: { type: Boolean, default: true },
     },
     {

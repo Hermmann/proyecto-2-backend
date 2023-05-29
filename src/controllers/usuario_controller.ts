@@ -7,15 +7,15 @@ dotenv.config();
 //@ts-check
 const postUser = async (req: Request, res: Response) => {
     try {
-        const { name, email, password,  phone,  address } = req.body;
+        const { name, email, password,  phone,  address, role } = req.body;
         const user = new User({
             name,
             email,
             password,
             phone,
-            address
+            address,
+            role
         });
-
 
         const resultado = await user.save();
         res.status(200).json(resultado);
