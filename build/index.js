@@ -19,6 +19,7 @@ app.get("/api", (req, res) => {
     res.send("API USER");
 });
 // the conntion to MongoDB
+
 mongoose_1.default.connect('mongodb+srv://' +
     process.env.MONGO_USER +
     ':' +

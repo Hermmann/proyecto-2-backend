@@ -19,6 +19,7 @@ app.get("/api", (req,res) => {
 });
 
 // the conntion to MongoDB
+
 mongoose.connect(
   'mongodb+srv://' +
   process.env.MONGO_USER +
